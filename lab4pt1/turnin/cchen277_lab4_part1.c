@@ -18,36 +18,36 @@ void Tick() {
 	//transitions
 	switch (state) {
 		case LED0R:
-			if (PINA & 0x01 == 0x01) {
+			if ((PINA & 0x01) == 0x01) {
 				PORTB = 0x02;
 				state = LED1P;	
 			}
-			else if (PINA & 0x01 == 0x00) {
+			else if ((PINA & 0x01) == 0x00) {
 				state = LED0R;
 			}
 			break;
 		case LED1P:
-			if (PINA & 0x01 == 0x00) {
+			if ((PINA & 0x01) == 0x00) {
 				state = LED1R;
 			}
-			else if (PINA & 0x01 == 0x01) {
+			else if ((PINA & 0x01) == 0x01) {
 				state = LED1P;
 			}
 			break;
 		case LED1R:
-			if (PINA & 0x01 == 0x01) {
+			if ((PINA & 0x01) == 0x01) {
 				PORTB = 0x01;
 				state = LED0P;
 			}
-			else if (PINA & 0x01 == 0x00) {
+			else if ((PINA & 0x01) == 0x00) {
 				state = LED1R;
 			}
 			break;
 		case LED0P:
-			if (PINA & 0x01 == 0x00) {
+			if ((PINA & 0x01) == 0x00) {
 				state = LED0R;
 			}
-			else if (PINA & 0x01 == 0x01) {
+			else if ((PINA & 0x01) == 0x01) {
 				state = LED0P;
 			}
 			break;
